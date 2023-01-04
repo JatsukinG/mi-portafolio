@@ -3,6 +3,7 @@ import ProjectCard from "./components/ProjectCard.jsx"
 const projects = [
   {
     link: "https://autmztn.vercel.app/",
+    codeLink: "https://github.com/JatsukinG/autmztn",
     img: "/pagina1.png"
   },
   {
