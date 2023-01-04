@@ -22,7 +22,13 @@ const Header = () => {
         <div className={`md:flex md:static absolute top-full ${isOpen ? "flex flex-col" : "hidden"} md:bg-transparent bg-orange-700 md:w-auto w-full`}>
           {
             links.map((link) => (
-                <a key={link} href={`#${link}`} className="px-8 py-4 text-center hover:bg-white/30 hover:cursor-pointer">{link}</a>
+                <a
+                    key={link}
+                    href={`#${link}`}
+                    className="px-8 py-4 text-center hover:bg-white/30 hover:cursor-pointer"
+                    onClick={()=>setIsOpen(false)}>
+                  {link}
+                </a>
             ))
           }
         </div>
