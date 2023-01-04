@@ -59,7 +59,7 @@ const skills = [
 
 const Skills = () => {
   return (
-      <div className="w-full h-full flex flex-col items-center justify-center">
+      <div className="w-full h-full flex flex-col items-center justify-center" id="Skills">
         <h2 className="text-4xl text-white py-12">Skills</h2>
         <div className="md:w-3/4 md:gap-24 gap-10 flex justify-center items-center flex-wrap">
           {
