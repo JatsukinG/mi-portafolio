@@ -20,7 +20,7 @@ const Header = () => {
           <BsFillPersonBadgeFill size={20}/>
           Julian Trujillo
         </h3>
-        <div className={`top-full md:flex md:static absolute ${isOpen ? "opacity-100" : "opacity-0 pointer-events-none"} md:bg-transparent bg-orange-700 md:w-auto w-full`}>
+        <div className={`md:flex md:static absolute top-full ${isOpen ? "flex flex-col" : "hidden"} md:bg-transparent bg-orange-700 md:w-auto w-full`}>
           {
             links.map((link) => (
                 <p key={link} className="px-8 py-4 text-center hover:bg-white/30 hover:cursor-pointer">{link}</p>
