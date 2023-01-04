@@ -5,8 +5,8 @@ const Home = () => {
   const [typedCompleted, setTypedCompleted] = useState([])
 
   return (
-      <div className="w-full h-full bg-bg1 bg-cover flex flex-col justify-center items-center">
-        <h1 className="text-orange-800 text-5xl font-bold mb-4">
+      <div className="w-full h-full bg-bg1 md:bg-cover flex flex-col justify-center items-center">
+        <h1 className="text-orange-800 md:text-5xl text-3xl font-bold mb-4">
           <Typed strings={["Hi, I'am Julian Trujillo"]} typeSpeed={40}
                  onComplete={() => setTypedCompleted([...typedCompleted, '*'])}/>
         </h1>

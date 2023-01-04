@@ -9,7 +9,7 @@ const SkillCard = ({children, text, level}) => {
 
   return (
       <div
-          className="relative flex justify-between items-center bg-white/20 rounded-2xl hover:scale-125 hover:bg-white/30 duration-500"
+          className="relative flex justify-between items-center bg-white/20 rounded-2xl md:hover:scale-125 hover:scale-110 hover:bg-white/30 duration-500"
           onMouseOver={mouseOver}
           onMouseOut={mouseOut}
       >
@@ -18,14 +18,16 @@ const SkillCard = ({children, text, level}) => {
         }
         { isHover &&
             <>
-            <p className="absolute w-full bottom-full uppercase text-white text-xs text-center mb-2 font-bold">{text}</p>
+              <p className="absolute w-full bottom-full uppercase text-white text-xs text-center mb-2 font-bold">
+                {text}
+              </p>
               <div className="absolute w-full mt-2 top-full flex justify-between">
                 {
                 [1,2,3,4,5].map(n=>(
                     <VscDebugBreakpointLog size={15} color={n<=level ? "orange" : "white"}/>
                   ))
                 }
-            </div>
+              </div>
             </>
         }
       </div>
