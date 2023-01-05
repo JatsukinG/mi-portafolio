@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { BsFillPersonBadgeFill } from "react-icons/bs"
 import { FiMenu } from "react-icons/fi"
 import { AiOutlineCloseCircle } from "react-icons/all"
+import { useRecoilValue } from "recoil"
+import headerOptionState from "../atoms/headerOptionState.js"
 
 const links = [
   'Home',
@@ -12,6 +14,7 @@ const links = [
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const headerOption = useRecoilValue(headerOptionState)
 
   return (
       <nav className="fixed top-0 left-0 w-full text-white font-bold flex justify-between bg-orange-500/40 backdrop-blur-md z-10 shadow">
@@ -25,8 +28,12 @@ const Header = () => {
                 <a
                     key={link}
                     href={`#${link}`}
-                    className="px-8 py-4 text-center hover:bg-white/30 hover:cursor-pointer"
+                    className="relative px-8 py-4 text-center hover:bg-white/30 hover:cursor-pointer flex justify-center"
                     onClick={()=>setIsOpen(false)}>
+                  {
+                    headerOption === link &&
+                    <span className="absolute bottom-2 bg-white h-1 rounded-xl md:w-3/4 w-12"></span>
+                  }
                   {link}
                 </a>
             ))

@@ -1,8 +1,12 @@
+import { useEffect } from "react"
 import SkillCard from './components/SkillCard.jsx'
 import { FaGitAlt, FaReact } from 'react-icons/fa'
 import { SiJavascript, SiNextdotjs, SiTailwindcss, SiThreedotjs, SiTypescript } from 'react-icons/si'
 import { AiFillGithub } from 'react-icons/ai'
 import { DiCss3, DiHtml5 } from "react-icons/di"
+import { useInView } from "react-intersection-observer"
+import { useSetRecoilState } from "recoil"
+import headerOptionState from "../../atoms/headerOptionState.js"
 
 const skills = [
   {
@@ -58,8 +62,18 @@ const skills = [
 ]
 
 const Skills = () => {
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+  });
+  const setHeaderOption = useSetRecoilState(headerOptionState)
+
+  useEffect(()=>{
+    if(inView)
+      setHeaderOption("Skills")
+  }, [inView])
+
   return (
-      <div className="w-full h-full flex flex-col items-center justify-center" id="Skills">
+      <div ref={ref} className="w-full h-full flex flex-col items-center justify-center" id="Skills">
         <h2 className="text-4xl text-white py-12">Skills</h2>
         <div className="md:w-3/4 md:gap-24 gap-10 flex justify-center items-center flex-wrap">
           {

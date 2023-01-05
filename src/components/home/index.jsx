@@ -1,11 +1,23 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Typed from "react-typed"
+import { useInView } from "react-intersection-observer"
+import { useSetRecoilState } from "recoil"
+import headerOptionState from "../../atoms/headerOptionState.js"
 
 const Home = () => {
   const [typedCompleted, setTypedCompleted] = useState([])
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+  });
+  const setHeaderOption = useSetRecoilState(headerOptionState)
+
+  useEffect(()=>{
+    if(inView)
+      setHeaderOption("Home")
+  }, [inView])
 
   return (
-      <div className="w-full h-full bg-bg1 md:bg-cover flex flex-col justify-center items-center" id="Home">
+      <div ref={ref} className="w-full h-full bg-bg1 md:bg-cover flex flex-col justify-center items-center" id="Home">
         <h1 className="text-orange-800 md:text-5xl text-3xl font-bold mb-4">
           <Typed strings={["Hi, I'am Julian Trujillo"]} typeSpeed={40}
                  onComplete={() => setTypedCompleted([...typedCompleted, '*'])}/>
